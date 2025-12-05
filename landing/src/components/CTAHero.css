@@ -1,0 +1,416 @@
+/* CSS Variables */
+:root {
+  --cta-container-max: 1200px;
+  --cta-panel-bg: #ffffff;
+  --cta-panel-border: rgba(11, 16, 32, 0.06);
+  --cta-headline: #0b1020;
+  --cta-muted: #6b7280;
+  --cta-accent-start: #7C4DFF;
+  --cta-accent-end: #6F2DF7;
+  --cta-dark-btn: #111827;
+  --cta-pill-size-desktop: 56px;
+  --cta-pill-size-mobile: 44px;
+}
+
+/* Section Container */
+.cta-hero-section {
+  position: relative;
+  width: 100%;
+  padding: 4rem 0 6rem 0;
+  background: radial-gradient(ellipse at top left, #f3ecff 0%, #eef7ff 100%);
+  overflow: hidden;
+}
+
+.cta-container {
+  max-width: var(--cta-container-max);
+  margin: 0 auto;
+  padding: 0 36px;
+  position: relative;
+}
+
+/* CTA Panel */
+.cta-panel {
+  position: relative;
+  background: var(--cta-panel-bg);
+  border: 1px solid var(--cta-panel-border);
+  border-radius: 24px;
+  padding: 48px 36px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+  overflow: hidden;
+}
+
+/* Connector Lines */
+.connector-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.4;
+}
+
+.connector-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Platform Pills */
+.platform-pill {
+  position: absolute;
+  width: var(--cta-pill-size-desktop);
+  height: var(--cta-pill-size-desktop);
+  z-index: 2;
+  pointer-events: auto;
+  will-change: transform;
+}
+
+.pill-content {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateX(5deg) rotateY(-6deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: float-cta var(--duration, 6s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+  will-change: transform;
+}
+
+.platform-pill:hover .pill-content {
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(-8px) scale(1.04);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.18);
+}
+
+.pill-content svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Pill Positions */
+.pill-left-third {
+  top: 20%;
+  left: 15%;
+}
+
+.pill-left-center {
+  top: 30%;
+  left: 25%;
+}
+
+.pill-right-center {
+  top: 30%;
+  right: 25%;
+}
+
+.pill-right-third {
+  top: 20%;
+  right: 15%;
+}
+
+@keyframes float-cta {
+  0% {
+    transform: perspective(1000px) translateY(0px) rotate(-3deg);
+  }
+  50% {
+    transform: perspective(1000px) translateY(-10px) rotate(3deg);
+  }
+  100% {
+    transform: perspective(1000px) translateY(0px) rotate(-3deg);
+  }
+}
+
+/* Badge */
+.cta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 8px 12px;
+  background: rgba(124, 77, 255, 0.06);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cta-accent-start);
+  width: fit-content;
+  margin: 0 auto 1.5rem;
+  text-align: center;
+  position: relative;
+  z-index: 3;
+}
+
+.star-icon-cta {
+  color: var(--cta-accent-start);
+  flex-shrink: 0;
+}
+
+.badge-text-cta {
+  white-space: nowrap;
+}
+
+/* Headline */
+.cta-headline {
+  font-size: clamp(22px, 3.6vw, 34px);
+  font-weight: 800;
+  line-height: 1.04;
+  color: var(--cta-headline);
+  text-align: center;
+  margin: 0;
+  letter-spacing: -0.02em;
+  position: relative;
+  z-index: 3;
+}
+
+/* Subtext */
+.cta-subtext {
+  font-size: clamp(16px, 2vw, 18px);
+  font-weight: 400;
+  color: var(--cta-muted);
+  text-align: center;
+  margin: 8px 0 2rem 0;
+  line-height: 1.6;
+  position: relative;
+  z-index: 3;
+}
+
+/* CTA Buttons */
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 3;
+}
+
+.cta-button {
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: transform 200ms ease, box-shadow 200ms ease, background-color 200ms ease;
+  will-change: transform;
+  white-space: nowrap;
+}
+
+.cta-button-primary {
+  background: linear-gradient(90deg, var(--cta-accent-start), var(--cta-accent-end));
+  color: white;
+  box-shadow: 0 8px 20px rgba(124, 77, 255, 0.18);
+}
+
+.cta-button-primary:hover,
+.cta-button-primary:focus {
+  transform: scale(1.03);
+  box-shadow: 0 12px 24px rgba(124, 77, 255, 0.25);
+  outline: none;
+}
+
+.cta-button-primary:focus-visible {
+  outline: 3px solid rgba(124, 77, 255, 0.12);
+  outline-offset: 2px;
+}
+
+.cta-button-primary:active {
+  transform: scale(1.01);
+}
+
+.cta-button-secondary {
+  background: var(--cta-dark-btn);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button-secondary:hover,
+.cta-button-secondary:focus {
+  background: #1f2937;
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  outline: none;
+}
+
+.cta-button-secondary:focus-visible {
+  outline: 3px solid rgba(17, 24, 39, 0.12);
+  outline-offset: 2px;
+}
+
+.cta-button-secondary:active {
+  transform: scale(1.01);
+}
+
+/* Responsive Design */
+@media (max-width: 1100px) {
+  .cta-container {
+    padding: 0 32px;
+  }
+
+  .cta-panel {
+    padding: 40px 32px;
+  }
+
+  .platform-pill {
+    width: 48px;
+    height: 48px;
+  }
+
+  .pill-content svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .cta-hero-section {
+    padding: 3rem 0 4rem 0;
+  }
+
+  .cta-container {
+    padding: 0 24px;
+  }
+
+  .cta-panel {
+    padding: 32px 24px;
+  }
+
+  .cta-headline {
+    font-size: clamp(20px, 4vw, 28px);
+  }
+
+  .cta-subtext {
+    margin-top: 6px;
+    margin-bottom: 1.5rem;
+  }
+
+  .platform-pill {
+    width: 48px;
+    height: 48px;
+  }
+
+  .pill-left-third {
+    left: 10%;
+  }
+
+  .pill-left-center {
+    left: 20%;
+  }
+
+  .pill-right-center {
+    right: 20%;
+  }
+
+  .pill-right-third {
+    right: 10%;
+  }
+}
+
+@media (max-width: 700px) {
+  .cta-hero-section {
+    padding: 2rem 0 3rem 0;
+  }
+
+  .cta-container {
+    padding: 0 20px;
+  }
+
+  .cta-panel {
+    padding: 24px 20px;
+  }
+
+  .cta-headline {
+    font-size: clamp(18px, 6.5vw, 22px);
+  }
+
+  .cta-subtext {
+    font-size: clamp(14px, 4vw, 16px);
+    margin-top: 6px;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .cta-button {
+    width: 100%;
+    padding: 12px 20px;
+  }
+
+  .platform-pill {
+    width: var(--cta-pill-size-mobile);
+    height: var(--cta-pill-size-mobile);
+  }
+
+  .pill-content svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Hide some pills on mobile for readability */
+  .pill-left-third,
+  .pill-right-third {
+    display: none;
+  }
+
+  .pill-left-center {
+    left: 15%;
+    top: 15%;
+  }
+
+  .pill-right-center {
+    right: 15%;
+    top: 15%;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-container {
+    padding: 0 16px;
+  }
+
+  .cta-panel {
+    padding: 20px 16px;
+  }
+
+  .platform-pill {
+    width: 40px;
+    height: 40px;
+  }
+
+  .pill-content svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .pill-content,
+  .cta-button {
+    animation: none;
+    transition: none;
+  }
+
+  .pill-content {
+    transform: none;
+  }
+
+  .platform-pill:hover .pill-content {
+    transform: none;
+  }
+
+  .cta-button:hover,
+  .cta-button:focus {
+    transform: none;
+  }
+}
+

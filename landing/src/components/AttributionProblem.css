@@ -1,0 +1,458 @@
+/* CSS Variables */
+:root {
+  --problem-headline-color: #0b1020;
+  --problem-subtext-color: #6b7280;
+  --problem-accent-color: #7C4DFF;
+  --problem-divider-color: #e6e7ee;
+  --problem-badge-bg: rgba(124, 77, 255, 0.06);
+  --problem-card-bg: #fbfbff;
+  --problem-brand-gray: #bfc3cc;
+  --problem-pill-shadow: rgba(15, 23, 42, 0.12);
+}
+
+/* Section Container */
+.attribution-problem-section {
+  position: relative;
+  width: 100%;
+  padding: 6rem 0;
+  background: radial-gradient(ellipse at top left, #f3ecff 0%, #eef7ff 100%);
+  overflow: hidden;
+}
+
+.problem-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 36px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Brand Logos Row */
+.brand-logos-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+}
+
+.brand-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.brand-logo-item:hover {
+  opacity: 0.8;
+}
+
+.brand-logo-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(1.2);
+  opacity: 0.7;
+}
+
+/* Two-Column Grid */
+.problem-grid {
+  display: grid;
+  grid-template-columns: 1fr 520px;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Left Column - Content */
+.problem-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Badge */
+.problem-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--problem-badge-bg);
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--problem-accent-color);
+  width: fit-content;
+  margin-bottom: 0.5rem;
+}
+
+.star-icon-small {
+  color: var(--problem-accent-color);
+  flex-shrink: 0;
+}
+
+.badge-text {
+  white-space: nowrap;
+}
+
+/* Heading */
+.problem-heading {
+  font-size: clamp(28px, 5vw, 56px);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--problem-headline-color);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+/* Subtext */
+.problem-subtext {
+  font-size: clamp(16px, 2vw, 18px);
+  color: var(--problem-subtext-color);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 600px;
+}
+
+/* Checklist */
+.problem-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.checklist-item {
+  position: relative;
+  padding: 1.25rem 0;
+}
+
+.checklist-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  transition: transform 0.3s ease, padding-left 0.3s ease;
+  position: relative;
+}
+
+.checklist-item:hover .checklist-content {
+  transform: translateX(6px);
+  padding-left: 4px;
+}
+
+.checklist-item:hover .checklist-content::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 60%;
+  background: var(--problem-accent-color);
+  border-radius: 2px;
+  opacity: 0.6;
+  box-shadow: 0 0 12px rgba(124, 77, 255, 0.4);
+}
+
+.checklist-star {
+  color: var(--problem-accent-color);
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: transform 0.3s ease;
+}
+
+.checklist-item:hover .checklist-star {
+  transform: translateX(6px);
+}
+
+.checklist-text {
+  font-size: clamp(15px, 1.5vw, 17px);
+  font-weight: 600;
+  color: var(--problem-headline-color);
+  line-height: 1.5;
+}
+
+.checklist-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--problem-divider-color);
+}
+
+/* Right Column - Visual */
+.problem-visual {
+  position: relative;
+  height: 100%;
+  min-height: 500px;
+}
+
+.portrait-card-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.portrait-card {
+  position: relative;
+  width: 100%;
+  border-radius: 28px;
+  background: var(--problem-card-bg);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+  z-index: 2;
+}
+
+.portrait-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+}
+
+.portrait-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.portrait-placeholder {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.portrait-placeholder.show {
+  display: flex;
+}
+
+.placeholder-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Floating Pills */
+.problem-pill {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  z-index: 3;
+  pointer-events: auto;
+  will-change: transform;
+}
+
+.problem-pill-content {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px var(--problem-pill-shadow);
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateX(5deg) rotateY(-5deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: float-pill var(--duration, 6s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+.problem-pill:hover .problem-pill-content {
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(-8px) scale(1.06);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.18);
+}
+
+.pill-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+@keyframes float-pill {
+  0% {
+    transform: perspective(1000px) translateY(0px) rotate(-3deg);
+  }
+  50% {
+    transform: perspective(1000px) translateY(-12px) rotate(3deg);
+  }
+  100% {
+    transform: perspective(1000px) translateY(0px) rotate(-3deg);
+  }
+}
+
+/* Vignette Effect */
+.attribution-problem-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.02) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .problem-grid {
+    grid-template-columns: 1fr 420px;
+    gap: 3rem;
+  }
+
+  .problem-pill {
+    width: 56px;
+    height: 56px;
+  }
+
+  .pill-logo {
+    width: 32px;
+    height: 32px;
+  }
+
+  .problem-container {
+    padding: 0 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .attribution-problem-section {
+    padding: 4rem 0;
+  }
+
+  .problem-container {
+    padding: 0 24px;
+  }
+
+  .problem-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .problem-visual {
+    order: -1;
+    min-height: 400px;
+  }
+
+  .problem-heading {
+    font-size: clamp(28px, 8vw, 40px);
+  }
+
+  .problem-subtext {
+    font-size: clamp(15px, 4vw, 17px);
+  }
+
+  .problem-pill {
+    width: 48px;
+    height: 48px;
+  }
+
+  .pill-logo {
+    width: 28px;
+    height: 28px;
+  }
+
+  .brand-logos-row {
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .brand-logo-img {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* Hide outermost pills on mobile */
+  .problem-pill:nth-of-type(6),
+  .problem-pill:nth-of-type(7),
+  .problem-pill:nth-of-type(8) {
+    display: none;
+  }
+
+  /* Reposition remaining pills closer to card */
+  .problem-pill {
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 480px) {
+  .attribution-problem-section {
+    padding: 3rem 0;
+  }
+
+  .problem-container {
+    padding: 0 20px;
+  }
+
+  .problem-heading {
+    font-size: clamp(28px, 10vw, 32px);
+  }
+
+  .checklist-text {
+    font-size: 14px;
+  }
+
+  .problem-pill {
+    width: 40px;
+    height: 40px;
+  }
+
+  .pill-logo {
+    width: 24px;
+    height: 24px;
+  }
+
+  .brand-logos-row {
+    gap: 1rem;
+  }
+
+  .brand-logo-img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .problem-pill-content,
+  .checklist-content,
+  .portrait-card {
+    animation: none;
+    transition: none;
+  }
+
+  .problem-pill-content {
+    transform: none;
+  }
+}
+
+/* Focus states for accessibility */
+.checklist-item:focus-within .checklist-content {
+  outline: 2px solid var(--problem-accent-color);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.portrait-card:focus-within {
+  outline: 2px solid var(--problem-accent-color);
+  outline-offset: 4px;
+}
+
+.problem-pill:focus-within .problem-pill-content {
+  outline: 2px solid var(--problem-accent-color);
+  outline-offset: 2px;
+}
+
