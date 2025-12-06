@@ -5,12 +5,13 @@ const AttributionProblem = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
-    // Lazy load the portrait image
+    // Try to load the portrait image, fallback to placeholder
     const img = new Image();
-    img.src = '/assets/person.jpg';
-    img.onload = () => setImageLoaded(true);
+    img.src = '/assets/person-placeholder.svg.png';
+    img.onload = () => {
+      setImageLoaded(true);
+    };
     img.onerror = () => {
-      // Fallback to placeholder if image doesn't exist
       setImageLoaded(true);
     };
   }, []);
@@ -121,26 +122,14 @@ const AttributionProblem = () => {
           <div className="problem-visual">
             <figure className="portrait-card-wrapper">
               <div className="portrait-card">
-                {imageLoaded ? (
-                  <img
-                    src="/assets/person.jpg"
-                    alt="Marketing professional analyzing attribution data"
-                    className="portrait-image"
-                    loading="lazy"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.nextElementSibling?.classList.add('show');
-                    }}
-                  />
-                ) : null}
-                <div className={`portrait-placeholder ${imageLoaded ? '' : 'show'}`}>
-                  <img
-                    src="/assets/person-placeholder.svg.png"
-                    alt="Marketing image"
-                    className="placeholder-svg.jpg"
-                    aria-hidden="true"
-                  />
-                </div>
+                <img
+                  src="/assets/person-placeholder.svg.png"
+                  alt="Marketing professional analyzing attribution data with puzzle pieces and brand logos"
+                  className="portrait-image"
+                  loading="lazy"
+                  onLoad={() => setImageLoaded(true)}
+                  onError={() => setImageLoaded(true)}
+                />
               </div>
 
               {/* Floating pills */}
