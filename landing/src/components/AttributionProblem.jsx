@@ -31,13 +31,13 @@ const AttributionProblem = () => {
 
   const floatingPills = [
     { name: 'Amazon', id: 'amazon', color: '#FF9900', delay: '0s', duration: '6s', top: '10%', left: '-8%' },
-    { name: 'Google', id: 'google', color: '#4285F4', delay: '0.5s', duration: '7s', top: '25%', right: '-10%' },
+    { name: 'Google', id: 'google', color: '#4285F4', delay: '0.5s', duration: '7s', top: '25%', right: '-20%' },
     { name: 'Shopify', id: 'shopify', color: '#96BF48', delay: '1s', duration: '5.5s', top: '50%', left: '-12%' },
     { name: 'Meta', id: 'meta', color: '#0081FB', delay: '1.5s', duration: '8s', bottom: '30%', right: '-8%' },
     { name: 'TikTok', id: 'tiktok', color: '#000000', delay: '2s', duration: '6.5s', bottom: '15%', left: '-10%' },
     { name: 'Amazon', id: 'amazon', color: '#FF9900', delay: '2.5s', duration: '7.5s', top: '15%', right: '-6%' },
-    { name: 'Google', id: 'google', color: '#4285F4', delay: '3s', duration: '5s', bottom: '40%', left: '-6%' },
-    { name: 'Meta', id: 'meta', color: '#0081FB', delay: '3.5s', duration: '9s', top: '60%', right: '-12%' },
+    // { name: 'Google', id: 'google', color: '#4285F4', delay: '3s', duration: '5s', bottom: '40%', left: '-6%' },
+    // { name: 'Meta', id: 'meta', color: '#0081FB', delay: '3.5s', duration: '9s', top: '60%', right: '-12%' },
   ];
 
   return (
@@ -136,7 +136,7 @@ const AttributionProblem = () => {
                 <div className={`portrait-placeholder ${imageLoaded ? '' : 'show'}`}>
                   <img
                     src="/assets/person-placeholder.svg.png"
-                    alt=""
+                    alt="Marketing image"
                     className="placeholder-svg.jpg"
                     aria-hidden="true"
                   />
